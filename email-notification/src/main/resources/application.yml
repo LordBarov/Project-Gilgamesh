@@ -1,0 +1,27 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: email-notification
+  datasource:
+    password: password
+    url: jdbc:postgresql://localhost:5432/email-notification-service
+    username: lordbarov
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  zipkin:
+    base-url: http://localhost:9411
+  kafka:
+    bootstrap-servers: 29092
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
