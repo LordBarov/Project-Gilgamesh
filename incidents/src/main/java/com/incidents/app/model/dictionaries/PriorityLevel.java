@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "priority_levels")
@@ -25,4 +26,7 @@ public class PriorityLevel extends CreatedUpdatedMappedSuperClass {
 
     @Column(name = "color", unique = true)
     private String color;
+
+    @Column(name = "expired_date")
+    private LocalDateTime expiredDate;
 }

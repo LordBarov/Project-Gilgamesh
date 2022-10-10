@@ -1,5 +1,7 @@
 package com.incidents.app.service.dictionaries;
 
+import com.incidents.app.dtos.requests.dictionaries.CategoryDtoRequest;
+import com.incidents.app.dtos.response.dictionaries.CategoryDtoResponse;
 import com.incidents.app.model.dictionaries.Category;
 
 import java.util.List;
@@ -13,9 +15,9 @@ public interface CategoryService {
 
     List<Category> getAll();
 
-    Category create();
+    Category create(CategoryDtoRequest categoryDtoResponse);
 
-    Category update();
+    Category update(CategoryDtoRequest categoryDtoResponse, Long id);
 
-    void delete();
+    void delete(Long id);
 }

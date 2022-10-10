@@ -1,5 +1,6 @@
 package com.incidents.app.service.dictionaries;
 
+import com.incidents.app.dtos.response.dictionaries.PriorityLevelDtoRequest;
 import com.incidents.app.model.dictionaries.PriorityLevel;
 
 import java.util.List;
@@ -13,9 +14,9 @@ public interface PriorityLevelService {
 
     List<PriorityLevel> getAll();
 
-    PriorityLevel create();
+    PriorityLevel create(PriorityLevelDtoRequest dtoRequest);
 
-    PriorityLevel update();
+    PriorityLevel update(PriorityLevelDtoRequest dtoRequest, Long id);
 
-    void delete();
+    void delete(Long id);
 }
