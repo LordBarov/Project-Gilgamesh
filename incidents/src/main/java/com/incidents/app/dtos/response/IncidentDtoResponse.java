@@ -5,7 +5,6 @@ import com.incidents.app.model.dictionaries.Category;
 import com.incidents.app.model.dictionaries.PriorityLevel;
 import com.incidents.app.model.dictionaries.Tag;
 import com.incidents.app.model.dictionaries.Type;
-import com.incidents.app.model.user.User;
 import lombok.Data;
 
 import java.util.List;
@@ -27,5 +26,5 @@ public class IncidentDtoResponse {
 
     private List<Task> tasks;
 
-    private List<User> users;
+//    private List<User> users;
 }

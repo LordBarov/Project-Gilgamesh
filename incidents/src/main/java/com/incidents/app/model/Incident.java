@@ -5,7 +5,6 @@ import com.incidents.app.model.dictionaries.Category;
 import com.incidents.app.model.dictionaries.PriorityLevel;
 import com.incidents.app.model.dictionaries.Tag;
 import com.incidents.app.model.dictionaries.Type;
-import com.incidents.app.model.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -26,7 +25,7 @@ public class Incident extends CreatedUpdatedMappedSuperClass{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "title")
+    @Column(name = "title", unique = true)
     private String title;
 
     @Column(name = "description",columnDefinition = "TEXT")
@@ -57,13 +56,6 @@ public class Incident extends CreatedUpdatedMappedSuperClass{
     )
     private List<Tag> tags;
 
-    @ManyToMany
-    @JoinTable(
-            name = "incident_users",
-            joinColumns =  @JoinColumn(name = "incident_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    private List<User> users;
 
     @ManyToMany
     @JoinTable(

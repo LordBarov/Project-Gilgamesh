@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "statuses")
@@ -20,9 +21,12 @@ public class Status extends CreatedUpdatedMappedSuperClass {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "title")
+    @Column(name = "title", unique = true)
     private String title;
 
     @Column(name = "color", unique = true)
     private String color;
+
+    @Column(name = "expired_date")
+    private LocalDateTime expiredDate;
 }

@@ -15,6 +15,7 @@
         <module>apigw</module>
         <module>clients</module>
         <module>kafka</module>
+        <module>authentication</module>
     </modules>
 
 

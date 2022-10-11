@@ -1,8 +1,5 @@
 package com.incidents.app.dtos.requests;
 
-import com.incidents.app.model.dictionaries.Tag;
-import com.incidents.app.model.dictionaries.Type;
-import com.incidents.app.model.user.User;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;

@@ -1,5 +1,7 @@
 package com.incidents.app.service.dictionaries;
 
+import com.incidents.app.dtos.requests.dictionaries.StatusDtoResponse;
+import com.incidents.app.dtos.response.dictionaries.StatusDtoRequest;
 import com.incidents.app.model.dictionaries.Status;
 
 import java.util.List;
@@ -13,9 +15,9 @@ public interface StatusService {
 
     List<Status> getAll();
 
-    Status create();
+    Status create(StatusDtoRequest statusDtoRequest);
 
-    Status update();
+    Status update(StatusDtoRequest statusDtoRequest, Long id);
 
-    void delete();
+    void delete(Long id);
 }

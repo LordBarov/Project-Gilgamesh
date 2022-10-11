@@ -12,7 +12,7 @@ public class IncidentMapper {
         incidentDtoResponse.setPriorityLevel(incident.getPriorityLevel());
         incidentDtoResponse.setTypes(incident.getTypes());
         incidentDtoResponse.setTitle(incident.getTitle());
-        incidentDtoResponse.setUsers(incident.getUsers());
+//        incidentDtoResponse.setUsers(incident.getUsers());
         if (incident.getTags() != null) incidentDtoResponse.setTags(incident.getTags());
         if (incident.getTasks() != null) incidentDtoResponse.setTasks(incident.getTasks());
         return incidentDtoResponse;

@@ -1,5 +1,6 @@
 package com.incidents.app.service.dictionaries;
 
+import com.incidents.app.dtos.response.dictionaries.TypeDtoRequest;
 import com.incidents.app.model.dictionaries.Type;
 
 import java.util.List;
@@ -15,9 +16,9 @@ public interface TypeService {
 
     List<Type> getAllByListOfIds(List<Long> ids);
 
-    Type create();
+    Type create(TypeDtoRequest typeDtoRequest);
 
-    Type update();
+    Type update(TypeDtoRequest typeDtoRequest, Long id);
 
-    void delete();
+    void delete(Long id);
 }

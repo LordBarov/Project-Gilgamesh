@@ -1,5 +1,6 @@
 package com.incidents.app.service.dictionaries;
 
+import com.incidents.app.dtos.response.dictionaries.TagDtoRequest;
 import com.incidents.app.model.dictionaries.Tag;
 
 import java.util.List;
@@ -15,9 +16,9 @@ public interface TagService {
 
     List<Tag> getAllByListOfIds(List<Long> ids);
 
-    Tag create();
+    Tag create(TagDtoRequest dtoRequest);
 
-    Tag update();
+    Tag update(TagDtoRequest dtoRequest, Long id);
 
-    void delete();
+    void delete(Long id);
 }

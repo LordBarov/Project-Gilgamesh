@@ -1,6 +1,5 @@
 package com.incidents.app.model;
 
-import com.incidents.app.model.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,11 +21,7 @@ public class TaskUsers {
     @JoinColumn(name = "task_id")
     private Task task;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column(name = "user_id")
+    private Long userId;
 
-    @ManyToOne
-    @JoinColumn(name = "incident_id")
-    private Incident incident;
 }

@@ -13,6 +13,7 @@
         <module name="incidents" />
         <module name="eureka-server" />
         <module name="incident" />
+        <module name="authentication" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

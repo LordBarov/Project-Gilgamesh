@@ -8,6 +8,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tags")
@@ -21,7 +22,10 @@ public class Tag extends CreatedUpdatedMappedSuperClass {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "title")
+    @Column(name = "title", unique = true)
     private String title;
+
+    @Column(name = "expired_date")
+    private LocalDateTime expiredDate;
 }
 

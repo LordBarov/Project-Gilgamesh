@@ -42,7 +42,7 @@ public class PriorityLevelController {
 
     @PutMapping("/{id}/update")
     public ResponseEntity<PriorityLevelDtoResponse> update(@PathVariable("id") Long id,
-                                                      @Valid @RequestBody PriorityLevelDtoRequest dtoRequest) {
+                                                           @Valid @RequestBody PriorityLevelDtoRequest dtoRequest) {
         PriorityLevelDtoResponse dtoResponse = PriorityLevelMapper.priorityLevelToDto(priorityLevelService.update(dtoRequest,id));
         return new ResponseEntity<>(dtoResponse, HttpStatus.OK);
     }

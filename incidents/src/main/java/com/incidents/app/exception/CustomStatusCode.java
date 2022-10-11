@@ -10,7 +10,9 @@ public enum CustomStatusCode {
 
     JWT_TOKEN_NOT_VALID("107"),
 
-    FIELD_IS_NOT_VALID("108");
+    FIELD_IS_NOT_VALID("108"),
+
+    AUTHENTICATION_ERROR("109");
 
     private final String code;
 

@@ -13,6 +13,10 @@ spring:
           uri: lb://INCIDENTS
           predicates:
             - Path=/api/v1/incident/**
+        - id: authentication
+          uri: lb://AUTHENTICATION
+          predicates:
+            - Path=/api/v1/authentication/**
 
 
 eureka:

@@ -1,8 +1,10 @@
 package com.incidents.app.service.dictionaries;
 
 
+import com.incidents.app.dtos.response.dictionaries.TagDtoRequest;
 import com.incidents.app.exception.CustomStatusCode;
 import com.incidents.app.exception.ExceptionDescription;
+import com.incidents.app.exception.domain.CustomCouldNotCreateException;
 import com.incidents.app.exception.domain.CustomNotFoundException;
 import com.incidents.app.model.dictionaries.Tag;
 import com.incidents.app.repository.dictionaries.TagRepository;
@@ -10,6 +12,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -36,7 +40,7 @@ public class TagServiceImplementation implements TagService {
 
     @Override
     public List<Tag> getAll() {
-        return null;
+        return tagRepository.getAllByExpiredDateIsNull();
     }
 
     @Override
@@ -45,17 +49,47 @@ public class TagServiceImplementation implements TagService {
     }
 
     @Override
-    public Tag create() {
-        return null;
+    public Tag create(TagDtoRequest dtoRequest) {
+        Tag tag;
+        try {
+            tag = new Tag();
+            tag.setTitle(dtoRequest.getTitle());
+
+            return this.save(tag);
+        }
+        catch (Exception e) {
+            log.error(e);
+            throw new CustomCouldNotCreateException(CustomStatusCode.COULD_NOT_CREATE_RECORD_IN_DB.getCode());
+        }
     }
 
     @Override
-    public Tag update() {
-        return null;
+    public Tag update(TagDtoRequest dtoRequest, Long id) {
+        Tag tag;
+        try {
+            tag = this.getByIdThrowException(id);
+            tag.setTitle(dtoRequest.getTitle());
+
+            return this.save(tag);
+        }
+        catch (Exception e) {
+            log.error(e);
+            throw new CustomCouldNotCreateException(CustomStatusCode.COULD_NOT_CREATE_RECORD_IN_DB.getCode());
+        }
     }
 
     @Override
-    public void delete() {
+    public void delete(Long id) {
+        try {
+            this.getByIdThrowException(id).setExpiredDate(LocalDateTime.now());
+        }
+        catch (Exception e) {
+            log.error(e);
+            throw new CustomCouldNotCreateException(CustomStatusCode.COULD_NOT_CREATE_RECORD_IN_DB.getCode());
+        }
+    }
 
+    private Tag save(Tag tag) {
+        return tagRepository.save(tag);
     }
 }

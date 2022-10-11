@@ -3,14 +3,12 @@ package com.incidents.app.model;
 
 import com.incidents.app.model.dictionaries.Status;
 import com.incidents.app.model.dictionaries.Urgency;
-import com.incidents.app.model.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "tasks")
@@ -24,8 +22,10 @@ public class Task extends CreatedUpdatedMappedSuperClass {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "title", unique = true)
     private String title;
 
+    @Column(name = "description")
     private String description;
 
     @OneToOne

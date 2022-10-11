@@ -8,10 +8,8 @@ import com.incidents.app.exception.ExceptionDescription;
 import com.incidents.app.exception.domain.CustomCouldNotCreateException;
 import com.incidents.app.exception.domain.CustomNotFoundException;
 import com.incidents.app.model.Incident;
-import com.incidents.app.model.dictionaries.PriorityLevel;
 import com.incidents.app.repository.IncidentRepository;
 import com.incidents.app.service.dictionaries.*;
-import com.incidents.app.service.user.UserService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -29,7 +27,6 @@ public class IncidentServiceImplementation implements IncidentService{
     private final CategoryService categoryService;
     private final TagService tagService;
     private final TypeService typeService;
-    private final UserService userService;
     private final KafkaTemplate<String, EmailNotificationDtoRequest> kafkaTemplate;
     private final PriorityLevelService priorityLevelService;
 
@@ -63,7 +60,7 @@ public class IncidentServiceImplementation implements IncidentService{
             incident.setTitle(dtoRequest.getTitle());
             incident.setTags(tagService.getAllByListOfIds(dtoRequest.getTagIds()));
             incident.setTypes(typeService.getAllByListOfIds(dtoRequest.getTypeIds()));
-            incident.setUsers(userService.getAllByListOfIds(dtoRequest.getUserIds()));
+//            incident.setUsers(userService.getAllByListOfIds(dtoRequest.getUserIds()));
 
             EmailNotificationDtoRequest emailNotificationDtoRequest = new EmailNotificationDtoRequest();
             emailNotificationDtoRequest.setEmailType(1L);
