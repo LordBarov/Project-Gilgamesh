@@ -9,11 +9,15 @@ import com.incidents.app.exception.domain.CustomCouldNotCreateException;
 import com.incidents.app.exception.domain.CustomNotFoundException;
 import com.incidents.app.model.Incident;
 import com.incidents.app.repository.IncidentRepository;
-import com.incidents.app.service.dictionaries.*;
+import com.incidents.app.service.dictionaries.CategoryService;
+import com.incidents.app.service.dictionaries.PriorityLevelService;
+import com.incidents.app.service.dictionaries.TagService;
+import com.incidents.app.service.dictionaries.TypeService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,7 +33,7 @@ public class IncidentServiceImplementation implements IncidentService{
     private final TypeService typeService;
     private final KafkaTemplate<String, EmailNotificationDtoRequest> kafkaTemplate;
     private final PriorityLevelService priorityLevelService;
-
+    private final IncidentUsersService incidentUsersService;
 
     @Override
     public Optional<Incident> getById(Long id) {
@@ -50,6 +54,7 @@ public class IncidentServiceImplementation implements IncidentService{
     }
 
     @Override
+    @Transactional
     public Incident create(IncidentDtoRequest dtoRequest) {
         Incident incident;
         try {
@@ -60,7 +65,8 @@ public class IncidentServiceImplementation implements IncidentService{
             incident.setTitle(dtoRequest.getTitle());
             incident.setTags(tagService.getAllByListOfIds(dtoRequest.getTagIds()));
             incident.setTypes(typeService.getAllByListOfIds(dtoRequest.getTypeIds()));
-//            incident.setUsers(userService.getAllByListOfIds(dtoRequest.getUserIds()));
+
+            dtoRequest.getUserIds().forEach(ids -> incidentUsersService.create(incident.getId(), ids));
 
             EmailNotificationDtoRequest emailNotificationDtoRequest = new EmailNotificationDtoRequest();
             emailNotificationDtoRequest.setEmailType(1L);

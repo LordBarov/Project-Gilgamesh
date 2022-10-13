@@ -1,7 +1,6 @@
 package com.incidents.app.service.dictionaries;
 
-import com.incidents.app.dtos.requests.dictionaries.StatusDtoResponse;
-import com.incidents.app.dtos.response.dictionaries.StatusDtoRequest;
+import com.incidents.app.dtos.requests.dictionaries.StatusDtoRequest;
 import com.incidents.app.model.dictionaries.Status;
 
 import java.util.List;

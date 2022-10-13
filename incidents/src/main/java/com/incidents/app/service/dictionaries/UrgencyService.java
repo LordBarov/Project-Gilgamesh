@@ -1,5 +1,6 @@
 package com.incidents.app.service.dictionaries;
 
+import com.incidents.app.dtos.requests.dictionaries.UrgencyDtoRequest;
 import com.incidents.app.model.dictionaries.Urgency;
 
 import java.util.List;
@@ -13,9 +14,9 @@ public interface UrgencyService {
 
     List<Urgency> getAll();
 
-    Urgency create();
+    Urgency create(UrgencyDtoRequest dtoRequest);
 
-    Urgency update();
+    Urgency update(UrgencyDtoRequest dtoRequest, Long id);
 
-    void delete();
+    void delete(Long id);
 }

@@ -1,6 +1,6 @@
 package com.incidents.app.mappers.dictionaries;
 
-import com.incidents.app.dtos.requests.dictionaries.TypeDtoResponse;
+import com.incidents.app.dtos.response.dictionaries.TypeDtoResponse;
 import com.incidents.app.model.dictionaries.Type;
 
 public class TypeMapper {

@@ -56,12 +56,4 @@ public class Incident extends CreatedUpdatedMappedSuperClass{
     )
     private List<Tag> tags;
 
-
-    @ManyToMany
-    @JoinTable(
-            name = "incident_tasks",
-            joinColumns =  @JoinColumn(name = "incident_id"),
-            inverseJoinColumns = @JoinColumn(name = "task_id")
-    )
-    private List<Task> tasks;
 }

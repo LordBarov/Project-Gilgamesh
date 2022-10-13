@@ -1,4 +1,4 @@
-package com.incidents.app.dtos.requests.dictionaries;
+package com.incidents.app.dtos.response.dictionaries;
 
 import lombok.Data;
 

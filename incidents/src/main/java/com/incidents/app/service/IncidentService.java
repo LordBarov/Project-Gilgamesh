@@ -1,5 +1,6 @@
 package com.incidents.app.service;
 
+import com.clients.app.authentication.dtos.response.UserDtoResponse;
 import com.incidents.app.dtos.requests.IncidentDtoRequest;
 import com.incidents.app.model.Incident;
 

@@ -5,6 +5,7 @@ import com.authentication.app.dtos.request.UserDtoRequest;
 import com.authentication.app.mappers.user.UserMapper;
 import com.authentication.app.service.user.UserService;
 import com.clients.app.authentication.dtos.request.TokenAuthenticationDtoRequest;
+import com.clients.app.authentication.dtos.request.UserIdDtoRequest;
 import com.clients.app.authentication.dtos.response.UserDtoResponse;
 import com.clients.app.authentication.dtos.response.UserTokenAuthenticationDtoResponse;
 import lombok.RequiredArgsConstructor;
@@ -42,6 +43,15 @@ public class UserController {
         return new ResponseEntity<>(userDtoResponse, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}/check")
+    public boolean doesExist(@PathVariable("id") Long id) {
+        return userService.doesExist(id);
+    }
+
+    @PostMapping("/list")
+    public List<UserDtoResponse> getAllByIdList(@RequestBody UserIdDtoRequest userIdDtoRequest) {
+        return userService.getAllByListOfIds(userIdDtoRequest.getUserIds()).stream().map(UserMapper::userToDto).toList();
+    }
 
     @PostMapping("/authenticate-token")
     public UserTokenAuthenticationDtoResponse authenticateToken(@RequestBody TokenAuthenticationDtoRequest dtoRequest) {

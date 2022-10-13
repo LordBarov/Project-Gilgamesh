@@ -1,6 +1,6 @@
 package com.incidents.app.mappers.dictionaries;
 
-import com.incidents.app.dtos.requests.dictionaries.StatusDtoResponse;
+import com.incidents.app.dtos.response.dictionaries.StatusDtoResponse;
 import com.incidents.app.model.dictionaries.Status;
 
 public class StatusMapper {

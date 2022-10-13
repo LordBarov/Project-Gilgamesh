@@ -1,6 +1,6 @@
 package com.incidents.app.service.dictionaries;
 
-import com.incidents.app.dtos.response.dictionaries.PriorityLevelDtoRequest;
+import com.incidents.app.dtos.requests.dictionaries.PriorityLevelDtoRequest;
 import com.incidents.app.model.dictionaries.PriorityLevel;
 
 import java.util.List;

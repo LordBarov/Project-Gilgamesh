@@ -2,8 +2,8 @@ package com.incidents.app.controllers.dictionaries;
 
 
 import com.incidents.app.dtos.response.DeleteDtoResponse;
-import com.incidents.app.dtos.requests.dictionaries.PriorityLevelDtoResponse;
-import com.incidents.app.dtos.response.dictionaries.PriorityLevelDtoRequest;
+import com.incidents.app.dtos.response.dictionaries.PriorityLevelDtoResponse;
+import com.incidents.app.dtos.requests.dictionaries.PriorityLevelDtoRequest;
 import com.incidents.app.mappers.dictionaries.PriorityLevelMapper;
 import com.incidents.app.service.dictionaries.PriorityLevelService;
 import lombok.RequiredArgsConstructor;

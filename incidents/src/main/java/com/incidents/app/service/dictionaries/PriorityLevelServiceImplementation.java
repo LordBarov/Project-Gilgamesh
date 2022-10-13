@@ -1,13 +1,12 @@
 package com.incidents.app.service.dictionaries;
 
 
-import com.incidents.app.dtos.response.dictionaries.PriorityLevelDtoRequest;
+import com.incidents.app.dtos.requests.dictionaries.PriorityLevelDtoRequest;
 import com.incidents.app.exception.CustomStatusCode;
 import com.incidents.app.exception.ExceptionDescription;
 import com.incidents.app.exception.domain.CustomCouldNotCreateException;
 import com.incidents.app.exception.domain.CustomCouldNotDeleteException;
 import com.incidents.app.exception.domain.CustomNotFoundException;
-import com.incidents.app.model.dictionaries.Category;
 import com.incidents.app.model.dictionaries.PriorityLevel;
 import com.incidents.app.repository.dictionaries.PriorityLevelRepository;
 import lombok.AllArgsConstructor;

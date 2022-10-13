@@ -3,12 +3,15 @@ package com.incidents.app.service;
 
 import com.incidents.app.exception.CustomStatusCode;
 import com.incidents.app.exception.ExceptionDescription;
+import com.incidents.app.exception.domain.CustomCouldNotCreateException;
 import com.incidents.app.exception.domain.CustomNotFoundException;
 import com.incidents.app.model.TaskUsers;
 import com.incidents.app.repository.TaskUsersRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +22,7 @@ import java.util.Optional;
 public class TaskUsersServiceImplementation implements TaskUsersService{
 
     private final TaskUsersRepository taskUsersRepository;
+    private final TaskService taskService;
 
     @Override
     public Optional<TaskUsers> getById(Long id) {
@@ -39,17 +43,29 @@ public class TaskUsersServiceImplementation implements TaskUsersService{
     }
 
     @Override
-    public TaskUsers create() {
-        return null;
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public TaskUsers create(Long taskId, Long userId) {
+        TaskUsers taskUsers;
+        try {
+            taskUsers = new TaskUsers();
+            taskUsers.setTask(taskService.getByIdThrowException(taskId));
+            taskUsers.setUserId(userId);
+
+            return this.save(taskUsers);
+        }
+        catch (Exception e) {
+            log.error(e);
+            throw new CustomCouldNotCreateException(CustomStatusCode.COULD_NOT_CREATE_RECORD_IN_DB.getCode());
+        }
     }
 
+
     @Override
-    public TaskUsers update() {
-        return null;
+    public void delete(Long id) {
+
     }
 
-    @Override
-    public void delete() {
-
+    private TaskUsers save(TaskUsers taskUsers) {
+        return taskUsersRepository.save(taskUsers);
     }
 }

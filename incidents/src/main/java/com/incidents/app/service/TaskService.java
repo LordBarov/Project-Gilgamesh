@@ -1,5 +1,6 @@
 package com.incidents.app.service;
 
+import com.incidents.app.dtos.requests.TaskDtoRequest;
 import com.incidents.app.model.Task;
 
 import java.util.List;
@@ -12,9 +13,11 @@ public interface TaskService {
 
     List<Task> getAll();
 
-    Task create();
+    List<Task> getAllByIncidentId(Long id);
 
-    Task update();
+    Task create(TaskDtoRequest dtoRequest);
 
-    void delete();
+    Task update(TaskDtoRequest dtoRequest, Long id);
+
+    void delete(Long id);
 }

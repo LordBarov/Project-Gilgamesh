@@ -21,6 +21,7 @@ public class SecurityConfig {
         http.cors().and().csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtTokenAuthenticator(), UsernamePasswordAuthenticationFilter.class);
         http.authorizeHttpRequests().antMatchers("/api/v1/authentication/**").permitAll()
+                .antMatchers("/api/v1/authentication/user/**").hasRole("USER")
                 .antMatchers("/api/v1/authentication/user/authenticate-token").permitAll();
         http.authorizeHttpRequests().anyRequest().authenticated();
         return http.build();

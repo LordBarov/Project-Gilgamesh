@@ -1,10 +1,9 @@
 package com.incidents.app.controllers.dictionaries;
 
-import com.incidents.app.dtos.requests.dictionaries.TypeDtoResponse;
+import com.incidents.app.dtos.response.dictionaries.TypeDtoResponse;
 import com.incidents.app.dtos.response.DeleteDtoResponse;
-import com.incidents.app.dtos.response.dictionaries.TypeDtoRequest;
+import com.incidents.app.dtos.requests.dictionaries.TypeDtoRequest;
 import com.incidents.app.mappers.dictionaries.TypeMapper;
-import com.incidents.app.service.dictionaries.TagService;
 import com.incidents.app.service.dictionaries.TypeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

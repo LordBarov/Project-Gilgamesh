@@ -1,11 +1,10 @@
 package com.incidents.app.controllers.dictionaries;
 
 
-import com.incidents.app.dtos.requests.dictionaries.StatusDtoResponse;
+import com.incidents.app.dtos.response.dictionaries.StatusDtoResponse;
 import com.incidents.app.dtos.response.DeleteDtoResponse;
-import com.incidents.app.dtos.response.dictionaries.StatusDtoRequest;
+import com.incidents.app.dtos.requests.dictionaries.StatusDtoRequest;
 import com.incidents.app.mappers.dictionaries.StatusMapper;
-import com.incidents.app.service.dictionaries.PriorityLevelService;
 import com.incidents.app.service.dictionaries.StatusService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,6 @@
 package com.incidents.app.mappers.dictionaries;
 
-import com.incidents.app.dtos.requests.dictionaries.PriorityLevelDtoResponse;
+import com.incidents.app.dtos.response.dictionaries.PriorityLevelDtoResponse;
 import com.incidents.app.model.dictionaries.PriorityLevel;
 
 public class PriorityLevelMapper {

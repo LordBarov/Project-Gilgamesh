@@ -1,8 +1,11 @@
 package com.incidents.app.service.dictionaries;
 
 
+import com.incidents.app.dtos.requests.dictionaries.UrgencyDtoRequest;
+import com.incidents.app.dtos.response.dictionaries.UrgencyDtoResponse;
 import com.incidents.app.exception.CustomStatusCode;
 import com.incidents.app.exception.ExceptionDescription;
+import com.incidents.app.exception.domain.CustomCouldNotCreateException;
 import com.incidents.app.exception.domain.CustomNotFoundException;
 import com.incidents.app.model.dictionaries.Urgency;
 import com.incidents.app.repository.dictionaries.UrgencyRepository;
@@ -39,17 +42,49 @@ public class UrgencyServiceImplementation implements UrgencyService {
     }
 
     @Override
-    public Urgency create() {
-        return null;
+    public Urgency create(UrgencyDtoRequest dtoRequest) {
+        Urgency urgency;
+        try {
+            urgency = new Urgency();
+            urgency.setTitle(dtoRequest.getTitle());
+            urgency.setColor(dtoRequest.getColor());
+
+            return this.save(urgency);
+        }
+        catch (Exception e) {
+            log.error(e);
+            throw new CustomCouldNotCreateException(CustomStatusCode.COULD_NOT_CREATE_RECORD_IN_DB.getCode());
+        }
     }
 
     @Override
-    public Urgency update() {
-        return null;
+    public Urgency update(UrgencyDtoRequest dtoRequest, Long id) {
+        Urgency urgency;
+        try {
+            urgency = this.getByIdThrowException(id);
+            urgency.setTitle(dtoRequest.getTitle());
+            urgency.setColor(dtoRequest.getColor());
+
+            return this.save(urgency);
+        }
+        catch (Exception e) {
+            log.error(e);
+            throw new CustomCouldNotCreateException(CustomStatusCode.COULD_NOT_CREATE_RECORD_IN_DB.getCode());
+        }
     }
 
     @Override
-    public void delete() {
+    public void delete(Long id) {
+        try {
+            urgencyRepository.delete(this.getByIdThrowException(id));
+        }
+        catch (Exception e) {
+            log.error(e);
+            throw new CustomCouldNotCreateException(CustomStatusCode.COULD_NOT_CREATE_RECORD_IN_DB.getCode());
+        }
+    }
 
+    private Urgency save(Urgency urgency) {
+        return urgencyRepository.save(urgency);
     }
 }

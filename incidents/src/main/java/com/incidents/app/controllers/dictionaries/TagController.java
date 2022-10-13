@@ -1,8 +1,8 @@
 package com.incidents.app.controllers.dictionaries;
 
-import com.incidents.app.dtos.requests.dictionaries.TagDtoResponse;
+import com.incidents.app.dtos.response.dictionaries.TagDtoResponse;
 import com.incidents.app.dtos.response.DeleteDtoResponse;
-import com.incidents.app.dtos.response.dictionaries.TagDtoRequest;
+import com.incidents.app.dtos.requests.dictionaries.TagDtoRequest;
 import com.incidents.app.mappers.dictionaries.TagMapper;
 import com.incidents.app.service.dictionaries.TagService;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
 package com.incidents.app.service.dictionaries;
 
-import com.incidents.app.dtos.response.dictionaries.TagDtoRequest;
+import com.incidents.app.dtos.requests.dictionaries.TagDtoRequest;
 import com.incidents.app.model.dictionaries.Tag;
 
 import java.util.List;

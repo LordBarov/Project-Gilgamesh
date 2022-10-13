@@ -31,6 +31,8 @@ public interface UserService {
 
     User update(UserChangeDtoRequest dtoRequest, Long id);
 
+    boolean doesExist(Long id);
+
     void delete(Long id);
 
     ResponseEntity<UserDtoResponse> authenticate(LoginDtoRequest loginDtoRequest, HttpServletRequest httpServletRequest);

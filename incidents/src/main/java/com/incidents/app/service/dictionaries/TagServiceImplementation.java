@@ -1,7 +1,7 @@
 package com.incidents.app.service.dictionaries;
 
 
-import com.incidents.app.dtos.response.dictionaries.TagDtoRequest;
+import com.incidents.app.dtos.requests.dictionaries.TagDtoRequest;
 import com.incidents.app.exception.CustomStatusCode;
 import com.incidents.app.exception.ExceptionDescription;
 import com.incidents.app.exception.domain.CustomCouldNotCreateException;
@@ -12,7 +12,6 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;

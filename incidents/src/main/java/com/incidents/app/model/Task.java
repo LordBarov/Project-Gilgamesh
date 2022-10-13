@@ -36,4 +36,8 @@ public class Task extends CreatedUpdatedMappedSuperClass {
     @JoinColumn(name = "urgency_id")
     private Urgency urgency;
 
+    @ManyToOne
+    @JoinColumn(name = "incident_id")
+    private Incident incident;
+
 }

@@ -199,6 +199,11 @@ public class UserServiceImplementation implements UserService, UserDetailsServic
         return new CustomUserDetails(getByUsername(username));
     }
 
+    @Override
+    public boolean doesExist(Long id) {
+        return userRepository.existsById(id);
+    }
+
     private HttpHeaders getJwtHeader(CustomUserDetails userPrincipal, String ipFromClient) {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(SecurityConstants.JWT_TOKEN_HEADER, jwtTokenProvider.generateToken(userPrincipal, ipFromClient));

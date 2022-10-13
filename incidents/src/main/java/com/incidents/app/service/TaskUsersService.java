@@ -13,9 +13,8 @@ public interface TaskUsersService {
 
     List<TaskUsers> getAll();
 
-    TaskUsers create();
+    TaskUsers create(Long taskId, Long userId);
 
-    TaskUsers update();
 
-    void delete();
+    void delete(Long id);
 }
