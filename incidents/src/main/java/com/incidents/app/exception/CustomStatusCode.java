@@ -12,7 +12,9 @@ public enum CustomStatusCode {
 
     FIELD_IS_NOT_VALID("108"),
 
-    AUTHENTICATION_ERROR("109");
+    AUTHENTICATION_ERROR("109"),
+
+    USERS_ARE_NOT_IN_LIST("110");
 
     private final String code;
 

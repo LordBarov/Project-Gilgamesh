@@ -7,8 +7,8 @@ public class PriorityLevelMapper {
 
     public static PriorityLevelDtoResponse priorityLevelToDto(PriorityLevel priorityLevel) {
         PriorityLevelDtoResponse priorityLevelDtoResponse = new PriorityLevelDtoResponse();
-        priorityLevel.setTitle(priorityLevel.getTitle());
-        priorityLevel.setColor(priorityLevel.getColor());
+        priorityLevelDtoResponse.setTitle(priorityLevel.getTitle());
+        priorityLevelDtoResponse.setColor(priorityLevel.getColor());
         return priorityLevelDtoResponse;
     }
 }

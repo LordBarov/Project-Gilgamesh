@@ -1,7 +1,6 @@
 package com.emailnotification.app.kafka;
 
 import com.clients.app.emailnotification.EmailNotificationDtoRequest;
-import com.emailnotification.app.model.EmailNotification;
 import com.emailnotification.app.service.EmailNotificationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;

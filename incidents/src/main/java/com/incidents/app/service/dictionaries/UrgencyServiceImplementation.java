@@ -2,7 +2,6 @@ package com.incidents.app.service.dictionaries;
 
 
 import com.incidents.app.dtos.requests.dictionaries.UrgencyDtoRequest;
-import com.incidents.app.dtos.response.dictionaries.UrgencyDtoResponse;
 import com.incidents.app.exception.CustomStatusCode;
 import com.incidents.app.exception.ExceptionDescription;
 import com.incidents.app.exception.domain.CustomCouldNotCreateException;

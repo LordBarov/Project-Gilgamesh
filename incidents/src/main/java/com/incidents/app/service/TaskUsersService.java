@@ -15,6 +15,5 @@ public interface TaskUsersService {
 
     TaskUsers create(Long taskId, Long userId);
 
-
     void delete(Long id);
 }

@@ -4,7 +4,6 @@ package com.authentication.app.service.user;
 import com.authentication.app.dtos.request.LoginDtoRequest;
 import com.authentication.app.dtos.request.UserChangeDtoRequest;
 import com.authentication.app.dtos.request.UserDtoRequest;
-
 import com.authentication.app.model.user.User;
 import com.clients.app.authentication.dtos.request.TokenAuthenticationDtoRequest;
 import com.clients.app.authentication.dtos.response.UserDtoResponse;

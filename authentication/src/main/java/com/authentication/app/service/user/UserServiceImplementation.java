@@ -41,8 +41,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.authentication.app.security.SecurityConstants.TOKEN_PREFIX;
-
 
 @Service
 @Log4j2

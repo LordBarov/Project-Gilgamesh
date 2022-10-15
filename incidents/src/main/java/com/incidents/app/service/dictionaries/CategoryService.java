@@ -1,7 +1,6 @@
 package com.incidents.app.service.dictionaries;
 
 import com.incidents.app.dtos.requests.dictionaries.CategoryDtoRequest;
-import com.incidents.app.dtos.response.dictionaries.CategoryDtoResponse;
 import com.incidents.app.model.dictionaries.Category;
 
 import java.util.List;

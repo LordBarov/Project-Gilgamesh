@@ -1,5 +1,6 @@
 package com.incidents.app.service;
 
+import com.incidents.app.model.Incident;
 import com.incidents.app.model.IncidentUsers;
 
 import java.util.List;

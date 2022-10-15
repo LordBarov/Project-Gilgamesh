@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
-    List<Task> getAllByIncidentIdOrderByCreatedDateTimeDesc(Long incidentId);
+    List<Task> getAllByIncidentIdOrderByCreatedDateDesc(Long incidentId);
 }

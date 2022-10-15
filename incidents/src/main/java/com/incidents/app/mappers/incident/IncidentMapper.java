@@ -1,8 +1,8 @@
 package com.incidents.app.mappers.incident;
 
 import com.clients.app.authentication.dtos.response.UserDtoResponse;
-import com.incidents.app.dtos.response.incident.IncidentDtoResponse;
 import com.incidents.app.dtos.response.TaskDtoResponse;
+import com.incidents.app.dtos.response.incident.IncidentDtoResponse;
 import com.incidents.app.mappers.dictionaries.CategoryMapper;
 import com.incidents.app.mappers.dictionaries.PriorityLevelMapper;
 import com.incidents.app.mappers.dictionaries.TagMapper;

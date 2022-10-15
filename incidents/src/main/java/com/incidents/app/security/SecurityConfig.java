@@ -1,9 +1,6 @@
 package com.incidents.app.security;
 
-import com.clients.app.authentication.AuthenticationClient;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -29,7 +26,8 @@ public class SecurityConfig {
                 .exceptionHandling().authenticationEntryPoint(customAuthenticationEntryPoint)
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtTokenAuthenticator, UsernamePasswordAuthenticationFilter.class);
-        http.authorizeHttpRequests().antMatchers("/api/v1/incident/**").hasRole("USER");
+        http.authorizeHttpRequests().antMatchers("/api/v1/incident/service/**").hasRole("USER")
+                .antMatchers("/api/v1/incident/task/**").hasRole("USER");
         http.authorizeHttpRequests().anyRequest().authenticated();
         return http.build();
     }

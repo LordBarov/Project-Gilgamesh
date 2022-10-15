@@ -1,11 +1,11 @@
 package com.incidents.app.service;
 
-import com.clients.app.authentication.AuthenticationClient;
 import com.incidents.app.exception.CustomStatusCode;
 import com.incidents.app.exception.ExceptionDescription;
 import com.incidents.app.exception.domain.CustomCouldNotCreateException;
 import com.incidents.app.exception.domain.CustomCouldNotDeleteException;
 import com.incidents.app.exception.domain.CustomNotFoundException;
+import com.incidents.app.model.Incident;
 import com.incidents.app.model.IncidentUsers;
 import com.incidents.app.repository.IncidentUsersRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,8 +23,8 @@ import java.util.Optional;
 public class IncidentUsersServiceImplementation implements IncidentUsersService{
 
     private final IncidentUsersRepository incidentUsersRepository;
-    private final IncidentService incidentService;
-    private final AuthenticationClient authenticationClient;
+    private final UserService userService;
+
 
     @Override
     public Optional<IncidentUsers> getById(Long id) {
@@ -55,8 +55,8 @@ public class IncidentUsersServiceImplementation implements IncidentUsersService{
         IncidentUsers incidentUsers;
         try {
             incidentUsers = new IncidentUsers();
-            incidentUsers.setIncident(incidentService.getByIdThrowException(incidentId));
-            if (authenticationClient.doesExist(userId)) {
+            incidentUsers.setIncidentId(incidentId);
+            if (userService.doesExist(userId)) {
                 incidentUsers.setUserId(userId);
             }
             else {

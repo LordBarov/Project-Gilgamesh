@@ -17,9 +17,8 @@ public class TaskUsers {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "task_id")
-    private Task task;
+    @Column(name = "task_id")
+    private Long taskId;
 
     @Column(name = "user_id")
     private Long userId;

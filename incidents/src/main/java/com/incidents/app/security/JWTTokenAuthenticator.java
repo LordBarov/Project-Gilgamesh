@@ -5,8 +5,6 @@ import com.clients.app.authentication.dtos.request.TokenAuthenticationDtoRequest
 import com.clients.app.authentication.dtos.response.PrivilegeDtoResponse;
 import com.clients.app.authentication.dtos.response.RoleDtoResponse;
 import com.clients.app.authentication.dtos.response.UserTokenAuthenticationDtoResponse;
-import com.incidents.app.exception.CustomStatusCode;
-import com.incidents.app.exception.domain.JwtTokenNotValidException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpHeaders;
@@ -24,7 +22,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 

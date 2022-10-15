@@ -20,7 +20,5 @@ public class IncidentUsers {
 
     private Long userId;
 
-    @ManyToOne
-    @JoinColumn(name = "incident_id")
-    private Incident incident;
+    private Long incidentId;
 }

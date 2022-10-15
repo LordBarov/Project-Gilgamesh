@@ -1,9 +1,6 @@
 package com.incidents.app.exception;
 
-import com.incidents.app.exception.domain.CustomCouldNotCreateException;
-import com.incidents.app.exception.domain.CustomCouldNotDeleteException;
-import com.incidents.app.exception.domain.CustomNotFoundException;
-import com.incidents.app.exception.domain.JwtTokenNotValidException;
+import com.incidents.app.exception.domain.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,6 +42,12 @@ public class ExceptionHandling {
     public ResponseEntity<HttpResponseException> customParameterIsEmptyException(MethodArgumentNotValidException methodArgumentNotValidException) {
         log.error(methodArgumentNotValidException.getMessage());
         return createHttpResponse(HttpStatus.BAD_REQUEST, Objects.requireNonNull(methodArgumentNotValidException.getFieldError()).getDefaultMessage(), 108);
+    }
+
+    @ExceptionHandler(CustomUsersNotInListException.class)
+    public ResponseEntity<HttpResponseException> customUsersNotInListException(CustomUsersNotInListException customUsersNotInListException) {
+        log.error(customUsersNotInListException.getMessage());
+        return createHttpResponse(HttpStatus.BAD_REQUEST, "Некоторые пользователи не входят в данную задачу", 110);
     }
 
     private ResponseEntity<HttpResponseException> createHttpResponse(HttpStatus httpStatus, String message, int customCode) {

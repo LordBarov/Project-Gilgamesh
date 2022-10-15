@@ -19,7 +19,6 @@ import java.util.Date;
 import java.util.List;
 
 import static com.auth0.jwt.algorithms.Algorithm.HMAC256;
-import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 import static com.authentication.app.security.SecurityConstants.VALID_IP_HEADER_CANDIDATES;
 
 @Component

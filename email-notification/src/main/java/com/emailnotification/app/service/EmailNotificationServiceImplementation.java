@@ -2,7 +2,6 @@ package com.emailnotification.app.service;
 
 
 import com.clients.app.emailnotification.EmailNotificationDtoRequest;
-import com.emailnotification.app.EmailNotificationApplication;
 import com.emailnotification.app.exception.CustomStatusCode;
 import com.emailnotification.app.exception.domain.CustomCouldNotCreateException;
 import com.emailnotification.app.model.EmailNotification;

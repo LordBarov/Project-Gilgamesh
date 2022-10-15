@@ -22,7 +22,6 @@ import java.util.Optional;
 public class TaskUsersServiceImplementation implements TaskUsersService{
 
     private final TaskUsersRepository taskUsersRepository;
-    private final TaskService taskService;
 
     @Override
     public Optional<TaskUsers> getById(Long id) {
@@ -48,7 +47,7 @@ public class TaskUsersServiceImplementation implements TaskUsersService{
         TaskUsers taskUsers;
         try {
             taskUsers = new TaskUsers();
-            taskUsers.setTask(taskService.getByIdThrowException(taskId));
+            taskUsers.setTaskId(taskId);
             taskUsers.setUserId(userId);
 
             return this.save(taskUsers);
